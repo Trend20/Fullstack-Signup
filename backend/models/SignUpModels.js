@@ -4,19 +4,19 @@ const mongoose = require('mongoose');
 const SignUpTemplate = new mongoose.Schema({
   fullName:{
     type: String,
-    required: true
+    required: [true, "fullName required"]
   },
   username:{
     type: String,
-    required: true
+    required: [true, "username required"]
   },
   email:{
     type: String,
-    required: true
+    required: [true, "email required"]
   },
   password:{
     type: String,
-    required: true
+    required: [true, "password required"]
   },
   date:{
     type: Date,

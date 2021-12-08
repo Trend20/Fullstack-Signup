@@ -14,7 +14,7 @@ mongoose.connect(process.env.DATABASE_ACCESS, () =>{
   console.log('Database connected');
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 
 app.use(express.json());
