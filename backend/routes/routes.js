@@ -12,7 +12,7 @@ router.post('/signup', async (req, res) =>{
     fullName: req.body.fullName,
     username: req.body.username,
     email: req.body.email,
-    password: securePsswd
+    password: securePsswd,
   })
   signedUpUser.save()
   .then(data =>{

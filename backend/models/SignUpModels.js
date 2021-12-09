@@ -1,4 +1,6 @@
+// import { Schema } from 'mongoose';
 const mongoose = require('mongoose');
+// const { Schema} = mongoose;
 
 // define the schema
 const SignUpTemplate = new mongoose.Schema({
