@@ -1,23 +1,23 @@
-const express = require('express');
+import express, { json } from 'express';
+import { connect } from 'mongoose';
+import { config } from 'dotenv';
+import routesUrl from './routes/routes';
+import cors from 'cors';
 const app = express();
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const routesUrl = require('./routes/routes');
-const cors = require('cors');
 
 // activate dotenv
-dotenv.config();
+config();
 
 
 // connect serve to the database
-mongoose.connect(process.env.DATABASE_ACCESS, () =>{
+connect(process.env.DATABASE_ACCESS, () =>{
   console.log('Database connected');
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 
-app.use(express.json());
+app.use(json());
 app.use(cors());
 // use the rotes as middleware
 app.use('/app', routesUrl);

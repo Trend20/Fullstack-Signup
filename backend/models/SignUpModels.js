@@ -1,9 +1,9 @@
 // import { Schema } from 'mongoose';
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 // const { Schema} = mongoose;
 
 // define the schema
-const SignUpTemplate = new mongoose.Schema({
+const SignUpTemplate = new Schema({
   fullName:{
     type: String,
     required: true
@@ -26,4 +26,4 @@ const SignUpTemplate = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('myTable', SignUpTemplate);
+export default model('myTable', SignUpTemplate);

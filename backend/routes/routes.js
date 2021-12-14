@@ -1,12 +1,12 @@
-const express = require('express');
-const router = express.Router();
-const signUpTemplateCopy = require('../models/SignUpModels'); 
-const bcrypt = require('bcrypt');
+import { Router } from 'express';
+import signUpTemplateCopy from '../models/SignUpModels'; 
+import { genSalt, hash } from 'bcrypt';
+const router = Router();
 
 router.post('/signup', async (req, res) =>{
 
-  const saltPassword = await bcrypt.genSalt(10);
-  const securePsswd = await bcrypt.hash(req.body.password, saltPassword);
+  const saltPassword = await genSalt(10);
+  const securePsswd = await hash(req.body.password, saltPassword);
 
   const signedUpUser = new signUpTemplateCopy({
     fullName: req.body.fullName,
@@ -24,4 +24,4 @@ router.post('/signup', async (req, res) =>{
   
 });
 
-module.exports = router;
+export default router;
